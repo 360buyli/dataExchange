@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="../STYLE.CSS">
+<style type="text/css">
+<!--
+BODY{
+BACKGROUND-COLOR: #f5feed;
+font-size:9pt
+}
+.tx1 { height: 20px;font-size: 9pt; border: 1px solid; border-color: #000000; color: #0000FF}
+-->
+</style>
+
+<SCRIPT language=javascript>
+function check_file() 
+{
+  var strFileName=form1.FileName.value;
+  if (strFileName=="")
+  {
+    alert("请选择要上传的文件");
+    return false;
+  }
+  var strtype=strFileName.substring(strFileName.length-3,strFileName.length);
+  strtype=strtype.toLowerCase();
+  if (strtype=="jpg"||strtype=="gif"||strtype=="rar"||strtype=="zip"||strtype=="bmp"||strtype=="png"||strtype=="swf"||strtype=="doc"||strtype=="exe")
+    return true;
+  else{
+    alert("这种文件类型不允许上传！\r\n只允许上传这几种文件：rar、zip、jpg、gif、bmp、png、swf、doc、exe\r\n请选择别的文件并重新上传。");
+	form1.FileName.focus();
+	return false;
+  }
+}
+</SCRIPT>
+</head>
+<body leftmargin="0" topmargin="0">
+<form action="upfile.asp" method="post" name="form1" onSubmit="return check_file()" enctype="multipart/form-data">
+  <input name="FileName" type="FILE" class="tx1" size="20">
+  <input type="submit" name="Submit" value="上传" style="border:1px double rgb(88,88,88);font:9pt">
+</form>
+</body>
+</html>
+
